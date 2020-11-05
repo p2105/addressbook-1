@@ -1,5 +1,5 @@
 FROM tomcat:latest
-COPY target/addressbook.war /usr/local/tomcat/webapps/
+COPY addressbook-repo1/target/addressbook.war /usr/local/tomcat/webapps/
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update -y && apt upgrade -y
 RUN apt install -y wget
