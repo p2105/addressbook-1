@@ -1,4 +1,6 @@
 FROM tomcat:latest
+RUN mv webapps webapps2
+RUN mv webapps.dist/ webapps
 COPY /addressbook-repo1/target/addressbook-2.0.war /usr/local/tomcat/webapps/
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update -y && apt upgrade -y
@@ -10,3 +12,4 @@ RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable 
 RUN apt-get -y update
 RUN apt-get install -y google-chrome-stable
 RUN apt-get install -yqq unzip
+CMD ["catalina.sh", "run"]
